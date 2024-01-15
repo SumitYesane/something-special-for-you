@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+      <style>
+        .buttons1 {
+            display: flex;
+        }
+
+        .size {
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .size:hover {
+            transform: scale(1.1);
+        }
+    </style>
+  <body>
+    <div class="surprise-background" id="surpriseBackground"></div>
+    <div class="container">
+      <div>
+        <h1 class="header_text">Choose one of them?</h1>
+      </div>
+      <div class="buttons1">
+		<img class="size" value ="1"
+			src="assets/img/giftbox (1).png"
+			alt="Cute animated illustration"
+		/>
+        <img class="size" value ="2"
+			src="assets/img/giftbox (1).png"
+			alt="Cute animated illustration"
+		/>
+		<img class="size" value ="3"
+			src="assets/img/giftbox (1).png"
+			alt="Cute animated illustration"
+		/>
+		<img class="size" value ="4"
+			src="assets/img/giftbox (1).png"
+			alt="Cute animated illustration"
+		/>
+      </div>
+    </div>
+		<script>
+		function showSurpriseEmojis() {
+        // Display surprise emojis background
+				document.getElementById("surpriseBackground").style.display = "block";
+
+        // Hide surprise emojis background after a delay (e.g., 3 seconds)
+        setTimeout(function () {
+				document.getElementById("surpriseBackground").style.display = "none";
+        }, 3000);}
+		$(document).ready(function () {
+        $('.size').on('click', function () {
+            // Remove the 'highlight' class from all images
+            $('.size').removeClass('highlight');
+
+            // Add the 'highlight' class to the clicked image
+            $(this).addClass('highlight');
+
+            var clickedImageSrc = $(this).attr('value');
+            console.log('You clicked on: ' + clickedImageSrc);
+			//window.location.href = "thank-you.html";
+
+            // Do something with the clicked image source
+        });
+    });
+
+		</script>
+  </body>
+</html>

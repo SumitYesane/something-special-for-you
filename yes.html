@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <h1 class="header_text">Yeeyy ! Finally</h1>
+    </div>
+    <div class="gif_container">
+      <img
+        src="https://i.postimg.cc/wTDG30TB/yes.gif"
+        alt="Cute animated illustration"
+      />
+    </div>
+    <button class="btn" id="DateButton" onclick="nextPage()">
+      Let's Fix a Date
+    </button>
+
+    <!-- Input field for the date picker -->
+    <input type="text" id="datePicker" style="display: none;" />
+  </div>
+
+  <script>
+    function nextPage() {
+      // Create a Flatpickr date picker
+      var datePicker = flatpickr("#datePicker", {
+        enableTime: false, // Set to true if you want to include time
+        dateFormat: "Y-m-d",
+        appendTo: document.body, // Append the calendar to the body
+		position:"center",
+        onClose: function(selectedDates, dateStr, instance) {
+          console.log(dateStr); // You can handle the selected date here
+		  window.location.href = "something-special.html";
+          // Add your logic to process the selected date
+        }
+      });
+
+      // Open the date picker on button click
+      datePicker.open();
+    }
+  </script>
+</body>
+</html>
